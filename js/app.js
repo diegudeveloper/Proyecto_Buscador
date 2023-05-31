@@ -1,27 +1,29 @@
-//Variables
+//variables
 const resultado = document.querySelector("#resultado");
 
 
-//Eventos
 
+//eventos
 document.addEventListener("DOMContentLoaded", () => {
     mostrarAutos();
 
-})
+
+});
+
 
 
 //funciones
 
 function mostrarAutos() {
     autos.forEach(auto => {
-        const autoHtml = document.createElement("P");
+        const {marca, year, precio, puertas, color, transmision} = auto;
+        const autoHTML = document.createElement("P");
 
-        autoHtml.textContent = `
-            ${auto.marca} - ${auto.modelo} - ${auto.year}
-        `;
-        
-        //insertar en el html
-        resultado.appendChild(autoHtml);
+        autoHTML.textContent = ` 
+            Marca: ${marca} / Año: ${year} / Precio ${precio} /
+            Puertas: ${puertas} / Color: ${color} / Transmision: ${transmision};
+        `
+
+        resultado.appendChild(autoHTML);
     });
-
 }
