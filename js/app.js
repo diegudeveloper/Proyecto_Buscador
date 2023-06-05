@@ -116,8 +116,21 @@ function llenarSelect() {
 function filtrarAuto() {
     const resultado = autos.filter( filtrarMarca).filter( filtrarYear ).filter( filtrarMinimo ).filter( filtrarMaximo).filter(filtrarPuertas).filter(filtrarTransmision).filter(filtrarColor)
 
-    // console.log(resultado)
-    mostrarAutos(resultado);
+    if (resultado.length) {
+        mostrarAutos(resultado);
+    }else {
+        noResultado();
+    }
+    
+}
+
+function noResultado() {
+
+    limpiarHtml();
+    const mensajeNoresultado = document.createElement("div");
+    mensajeNoresultado.classList.add("alerta", "error");
+    mensajeNoresultado.textContent = "No hay Resultados de datosBusqueda, Intente con otros Terminos";
+    resultado.appendChild(mensajeNoresultado);
 }
 
 function filtrarMarca(auto){
